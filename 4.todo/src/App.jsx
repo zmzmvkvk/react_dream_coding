@@ -1,11 +1,11 @@
 import "./App.css";
-import TodoLists from "./components/TodoLists";
+import TodoList from "./components/TodoList.jsx";
 
 function App() {
   return (
-    <div className="bg-slate-600 h-screen flex flex-wrap justify-center items-center">
-      <TodoLists />
-    </div>
+    <>
+      <TodoList />
+    </>
   );
 }
 
