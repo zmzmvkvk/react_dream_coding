@@ -1,20 +1,16 @@
-import { useState } from "react";
+export default function Todo({ id, item, onUpdate, onDelete }) {
+  const { text, status } = item;
 
-export default function Todo({ id, text, onChecked, onDelete }) {
-  const [isChecked, setIsChecked] = useState(false);
-
-  const handleCheck = () => {
-    setIsChecked((check) => !check);
-    onChecked({ ...text, status: isChecked ? "Active" : "Completed" });
+  const handleChange = (e) => {
+    const status = e.target.checked ? "completed" : "active";
+    onUpdate({ ...item, status });
   };
 
-  const handleDelete = () => {
-    onDelete(id);
-  };
+  const handleDelete = () => onDelete(id);
   return (
     <li>
-      <input id={id} type="checkbox" checked={isChecked} onChange={handleCheck} />
-      <label htmlFor={id}>{text.text}</label>
+      <input id={id} type="checkbox" checked={status === "completed"} onChange={handleChange} />
+      <label htmlFor={id}>{text}</label>
       <button onClick={handleDelete}>🗑</button>
     </li>
   );
