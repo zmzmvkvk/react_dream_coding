@@ -8,10 +8,7 @@ export default class Youtube {
   async search(keyword) {
     return keyword ? this.#searchByKeyword(keyword) : this.#mostPopular();
   }
-  // this.httpClient = axios.create({
-  //   baseURL: "https://www.googleapis.com/youtube/v3/",
-  //   params: { key: import.meta.env.VITE_YOUTUBE_API_KEY },
-  // });
+
   async #searchByKeyword(keyword) {
     console.log(import.meta.env.VITE_YOUTUBE_API_KEY);
     return this.apiClient
